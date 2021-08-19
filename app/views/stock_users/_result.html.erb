@@ -1,7 +1,25 @@
+<div class="results-block">
+  <%= render 'layouts/messages' %>
+</div>
+
 <% if @stock %>
-    <div class="card card-header results-block">
-        <Strong>Symbol:</Strong><%= @stock.ticket%>
-        <Strong>Name:</Strong><%= @stock.name%>
-        <Strong>Price:</Strong><%= @stock.last_price%>
-    </div>
+  <div class="card card-header results-block">
+    <strong>Symbol: </strong> <%= @stock.ticket %>
+    <strong>Name: </strong> <%= @stock.name %>
+    <strong>Price: </strong> <%= @stock.last_price %>
+    <% if current_user.can_track_stock?(@stock.ticket) %>
+      <%= link_to 'Add to portfolio', user_stockings_path(user: current_user, ticket: @stock.ticket),
+                                    class: "btn btn-sm btn-success", method: :post %>
+    <% else %>
+      <span class="badge badge-secondary">
+        You are already tracking
+        <% if !current_user.under_stock_limit? %>
+          10 stocks
+        <% end %>
+        <% if current_user.stock_already_tracked?(@stock.ticket) %>
+          this stock
+        <% end %>
+      </span>
+    <% end %>
+  </div>
 <% end %>

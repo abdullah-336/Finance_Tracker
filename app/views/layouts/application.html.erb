@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>FinanceTracker</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <html>
+      <head>
+        <title>FinanceTracker</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-  <%= render 'welcome/navigation'%>
-  <%=render  'layouts/messages'%>
-    <%= yield %>
-  </body>
-</html>
+      <body>
+        <%# <%= render 'welcome/navigation'%> 
+        <div class = "container">
+          <%=render  'layouts/messages'%>
+        </div>
+        <%= yield %>
+      </body>
+  </html>
