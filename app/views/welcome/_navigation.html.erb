@@ -12,9 +12,13 @@
           <a class="nav-link" href="my_portfolio_path">My Portfolio</a>
           
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item" <%= 'active' if request.path ==my_friends_path %> >
+          
+          <%# <li><%= link_to "My Portfolio", my_portfolio_path  %></li> 
+          <a class="nav-link" href="my_friends_path">My Friends</a>
+          
         </li>
+       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -26,13 +30,11 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+       
       </ul>
       <ul class='navbar-nav ml-auto'>
         <li class='nav-item' user-name>
-          <%# <%= current_user.full_name %>  
+          <%= current_user.full_name  %>
         </li>
         <li class='nav-item' logout-nav>
           <%= link_to("Log out", destroy_user_session_path, class: "btn btn-danger logout-btn", method: :delete, data: {confirm: 'Are you sure?'}) %>
