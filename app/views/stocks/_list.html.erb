@@ -16,23 +16,23 @@
             <td><%= stock.name %></td>
             <td><%= stock.last_price %></td>
             <td><% if current_user.can_track_stock?(stock.ticket) %>
-                  <%= link_to 'Add to portfolio', user_session_path(user: current_user, ticket: stock.ticket),
+                  <%= link_to 'Add to portfolio', user_stockings_path(user: current_user, ticket: stock.ticket),
                                     class: "btn btn-sm btn-success", method: :post %>
-                <%# <% elsif current_user.id != @user.id %> 
+                <% elsif current_user.id != @user.id %>
                   <span class="badge badge-secondary">
                     You are already tracking
                     <% if !current_user.under_stock_limit? %>
                       10 stocks
                     <% end %>
-                    <%# <% if current_user.stock_already_tracked?(stock.ticket) %>
-                      <%# this stock %>
+                    <% if current_user.stock_already_tracked?(stock.ticket) %>
+                      this stock
                     <% end %>
                   </span>
-                <%# <% end %> 
-              <%# <% if current_user.id == @user.id %>
+                <% end %> 
+              <% if current_user.id == @user.id%>
                 <%= link_to 'Remove', user_stocking_path(stock), method: :delete, data: {confirm: 'Are you sure?'},
                                           class: 'btn btn-sm btn-warning' %>
-              <%# <% end %>  
+              <% end  %>
             </td>
           </tr>
         <% end %>
