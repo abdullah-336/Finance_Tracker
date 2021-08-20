@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  
-
-  devise_for :users, controllers: {
+  devise_for :users, controllers:
+  {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-}
+  }
+
 root 'welcome#index'
+get 'my_portfolio',to: 'stock_users#my_portfolio'
+get 'search_stock',to: 'stocks#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
