@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   get 'my_friends_path',to: 'stock_users#my_friends'
   get 'my_friends',to: 'stock_users#my_friends'
 
-  get 'search_friend', to: 'stock_users#search'
-  get 'search_friend_path', to: 'stock_users#search'
+  # get 'search_friend', to: 'stock_users#earch'
+
+
 
 
   resources :friendships, only: [:create, :destroy]
